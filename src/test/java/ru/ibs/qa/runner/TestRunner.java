@@ -1,16 +1,15 @@
 package ru.ibs.qa.runner;
 
-import org.junit.platform.suite.api.*;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
-import static io.cucumber.core.options.Constants.*;
-
-@Suite
-@IncludeEngines("cucumber")
-@ConfigurationParameters({
-        @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@fail"),
-        @ConfigurationParameter(key = FEATURES_PROPERTY_NAME, value = "src/test/resources/features"),
-        @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "ru.ibs.qa.steps"),
-        @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
-})
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        tags = "@all",
+        glue = "ru/ibs/qa/steps",
+        features = "src/test/resources/features",
+        plugin = "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+)
 public class TestRunner {
 }
