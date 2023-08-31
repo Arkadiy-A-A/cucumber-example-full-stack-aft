@@ -2,6 +2,7 @@ package ru.ibs.qa.steps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ru.И;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.ui.Sleeper;
 
 import java.time.Duration;
@@ -12,7 +13,7 @@ import java.util.Random;
 public class ExperimentalSteps {
 
     @И("открыта страница по адресу {string}")
-    public void открыта_страница_по_адресу(String string) {
+    public void открыта_страница_по_адресу(String string1) {
         // Реализация
     }
 
@@ -39,6 +40,12 @@ public class ExperimentalSteps {
     
     @И("следующие поля видимы:")
     public void следующие_поля_видимы(List<String> dataTable) {
+        // Реализация
+        следующие_поля_видимы2(dataTable);
+    }
+
+    @Step("следующие поля видимы {dataTable}")
+    public void следующие_поля_видимы2(List<String> dataTable) {
         // Реализация
     }
 
